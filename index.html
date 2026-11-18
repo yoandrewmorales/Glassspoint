@@ -1395,7 +1395,7 @@ function updateFlare(){
 let last=performance.now(),trainS=0.06,time=0,running=false;
 function frame(now){
   if(!running)return;
-  const dt=Math.min(0.05,(now-last)/1000);last=now;const anim=!reduceMotion;time+=dt;
+  const dt=Math.max(0,Math.min(0.05,(now-last)/1000));last=now;const anim=!reduceMotion;time+=dt;
   skyMat.uniforms.time.value=time;
   if(anim||view==='train')trainS=(trainS+dt*26/trainLen)%1;
   train.forEach((g,i)=>{const s=(trainS-i*17/trainLen+1)%1;const p=loop.getPointAt(s),q=loop.getPointAt((s+0.002)%1);g.position.set(p.x,p.y+4.2,p.z);g.lookAt(q.x,q.y+4.2,q.z);});
