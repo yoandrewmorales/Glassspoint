@@ -147,6 +147,21 @@ button:focus-visible,.chip:focus-visible,input:focus-visible{outline:3px solid v
   .layers{display:none}.chip{flex:none}
 }
 @media (prefers-reduced-motion:reduce){.poi .halo{transition:none}}
+
+/* phone fit fix */
+.app{width:100%;max-width:100vw;overflow:hidden}
+aside,.mapwrap{min-width:0}
+@media (max-width:760px){
+  html,body{height:100%;height:100dvh;overflow:hidden}
+  .app{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) 42%;height:100%;height:100dvh}
+  aside *{max-width:100%}
+  .list li button,.list li{min-width:0}
+  .list p,.list small,.list span{white-space:normal;overflow-wrap:anywhere}
+  .search{max-width:calc(100% - 32px)}
+  .peg{right:12px;bottom:auto;top:12px;width:auto;padding:0 14px 0 8px;height:46px;border-radius:23px}
+  .peg .peglbl{display:inline}
+  .ctrl{right:12px;bottom:12px}
+}
 </style>
 </head>
 <body>
